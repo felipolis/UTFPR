@@ -1,4 +1,4 @@
-###Repositório dos Exercicios da Faculdade
+Repositório dos Exercicios da Faculdade
 
 Neste repositorio eu reuno a resolução dos exercicios que eu resolvi (ou estou resolvendo) durante meu curso de ciencia da computação na Universidade Tecnologica Federal do Paraná.
 
