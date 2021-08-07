@@ -1,11 +1,12 @@
-# App-de-Banco
-Trata-se do meu trabalho final da matéria de introdução a ciência da computação.
-O curso de introdução a ciencia da computação é apresentado no primeiro semestre do curso de ciencia da computação na Universidade Tecnologica Federal do Paraná.
-O objetivo do trabalho era a criação de um aplicativo no matLab do code.org que conteria as seguintes ações:
+# Bank-App
+This is my final work in the introductory subject to computer science.
+The introductory computer science course is presented in the first semester of the computer science course at Universidade Tecnologica Federal do Paraná.
+The objective of the work was to create an application in the code.org matLab that would contain the following actions:
 
-1. Possibilidade de cadastro de cliente
-2. Criação de um caixa eletronico com limite de quantia em dinheiro
-3. Possibilidade de deposito de determinado valor para determinada conta bancaria criada.
-4. Possibilidade de saque em dinheiro (dentro do limite de valor em caixa)
+1. Possibility of customer registration
+2. Creation of an ATM with a cash limit
+3. Possibility of depositing a certain amount for a certain bank account created.
+4. Possibility of cash withdrawal (within the cash limit) 
 
-Resultado final no APPLAB: https://studio.code.org/projects/applab/-4P222Nr8FGdtheqgMNjLMdxcshPxrYId1mTcAlJJps
+
+Final Results on APPLAB: https://studio.code.org/projects/applab/-4P222Nr8FGdtheqgMNjLMdxcshPxrYId1mTcAlJJps
