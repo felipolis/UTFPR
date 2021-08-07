@@ -1,6 +1,6 @@
-UTFPR Exercises Repository
+## UTFPR Exercises Repository
 
-In this repository I gather the resolution of the exercises that I solved (or am doing) during my computer science course at Universidade Tecnologica Federal do Paraná.
+### In this repository I gather the resolution of the exercises that I solved (or am doing) during my computer science course at Universidade Tecnologica Federal do Paraná.
 
 1st Period: FINISHED
 
