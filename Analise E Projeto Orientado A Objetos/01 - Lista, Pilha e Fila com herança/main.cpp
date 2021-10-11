@@ -58,7 +58,6 @@ int main(){
     p->empilhar(1);
     p->empilhar(0);
 
-
     p->toString(aux);
     printf("%s\n", aux);
 
