@@ -1,0 +1,95 @@
+Antes de tudo, gostaria de explicar a logica que eu usei para resolver o labirinto.
+
+Considerei, como foi pedido no enunciado, "0" para representar um caminho livre para movimentação e "1" para representar um abstaculo do labirinto. Conforme nosso personagem caminha pelo labirinto, o caminho é marcado com o numero "8" para representar um lugar que ele ja havia passado antes.
+
+Utilizei a extrutura de dados Pilha como base para minha solução. Inicialmente precisei de 3 pilhas:
+- a pilha pLinha: Que representa o numero da linha da matriz do labirinto.
+- a pilha Pcoluna: Que representa o numero da coluna da matriz do labirinto.
+- a pilha pDireção: Que representa a direção escolinha pelo nosso personagem para movimentação no labirinto.
+
+Inicialmente nosso personagem começa na posição (0,0) da matriz, ou seja, canto superior esquerdo do mapa, sendo que a saida se localiza no quadrante (9,9) do mapa, ou seja, canto inferior direito. Devido a isso, estabeleci uma ordem de prioridade de direções para locomoção, sendo elas, em ordem de importancia: BAIXO, DIREITA, CIMA e ESQUERDA. O objetivo de estabelecer essa ordem visa evitar que o nosso personagem passe por caminhos não prioritarios.
+
+O algoritmo analisara se a posição desejada de locomooção tem ou não uma parede. Em caso de uma afirmativa, ele n vai para esse ponto. 
+Vamos considerar que nosso personagem queira se locomover da posição (0,0) para a posição (1,0). Após ele confirmar que não há obstaculos em frente, empilhamos o valor da linha na pilha pLinha e o valor da coluna na pilha pColuna para apenas resguardar esse valor. Alem disso, empilhamos tambem a direção que foi priorizada para locomoção na pDireção, para tambem deixar salvo em uma eventual analise posterior. E, por fim, é incrmeentado o valor da linha e se mantem o valor da coluna inalterado, uma vez que passamos da posição (0,0) para a posição (1,0).
+
+Mas oq acontece se ele chegar uma etapa em que não ha caminho em frente? Ele desempilha os valores das pilhas e retorna para suas posições anteriores a fim de encontrar outro caminho. Se não encontrar, ele volta pra posição (0,0) e, com isso, confirma-se que o labirinto não ha solução.
+
+
+Labirintos usados:
+
+#1 Apenas com um caminho direto à saida:
+
+0   1   1   1   1   1   1   1   1   1
+0   0   1   1   1   1   1   1   1   1
+1   0   1   0   0   0   0   1   1   1
+1   0   1   0   1   1   0   1   1   1
+1   0   0   0   1   1   0   1   1   1
+1   1   1   1   1   1   0   1   1   1
+1   1   1   1   1   1   0   1   1   1
+1   1   1   1   1   1   0   1   1   1
+1   1   1   1   1   1   0   1   1   1
+1   1   1   1   1   1   0   0   0   0
+
+Como outpup, recebemos:
+BAIXO -> DIREITA -> BAIXO -> BAIXO -> BAIXO -> DIREITA -> DIREITA -> CIMA -> CIMA -> DIREITA -> DIREITA -> DIREITA -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> DIREITA -> DIREITA -> DIREITA
+
+Este é exatamente o camihno feito por nosso personagem!!!
+
+
+#2 Agoa temos, alem do caminho correto, um caminho que não leva a lugar nenhum:
+
+0   1   1   1   1   1   1   1   1   1
+0   0   1   1   1   1   1   1   1   1
+1   0   1   0   0   0   0   1   1   1
+1   0   1   0   1   1   0   1   1   1
+1   0   0   0   1   1   0   1   1   1
+1   1   0   1   1   1   0   1   1   1
+1   1   0   1   1   1   0   1   1   1
+1   0   0   1   1   1   0   1   1   1
+1   0   1   1   1   1   0   1   1   1
+1   1   1   1   1   1   0   0   0   0
+
+Como output, recemos:
+BAIXO -> DIREITA -> BAIXO -> BAIXO -> BAIXO -> DIREITA -> DIREITA -> CIMA -> CIMA -> DIREITA -> DIREITA -> DIREITA -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> DIREITA -> DIREITA -> DIREITA
+
+Perceba que o output se refere apenas ao caminho correto! Iss acontece pq ele desconsidera o caminho de ida no caminho errado e volta para encontrar o caminho certo, sendo contabilizado apenas o caminho que leva ao fim de fato do labirinto.
+
+#Agora temos, alem do caminho correto, tres caminhos que nao levam a lugar nenhum:
+
+0   1   1   1   0   1   1   1   1   1
+0   0   1   1   0   1   1   1   1   1
+1   0   1   0   0   0   0   1   1   1
+1   0   1   0   1   1   0   0   0   1
+1   0   0   0   1   1   0   1   0   1
+1   1   0   1   1   1   0   1   0   1
+1   1   0   1   1   1   0   1   1   1
+1   0   0   1   1   1   0   1   1   1
+1   0   1   1   1   1   0   1   1   1
+1   1   1   1   1   1   0   0   0   0
+
+Como output, recebemos:
+BAIXO -> DIREITA -> BAIXO -> BAIXO -> BAIXO -> DIREITA -> DIREITA -> CIMA -> CIMA -> DIREITA -> DIREITA -> DIREITA -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> BAIXO -> DIREITA -> DIREITA -> DIREITA
+
+Perceba que independentemente do numero de caminhos errados, o nosso personagem consegue chegar ao caminho correto e registrar esses passos.
+
+Mas e se, de fato, nao existir nenhum caminho correto?
+
+#4 Nenhum caminho certo:
+
+0   1   1   1   0   1   1   1   1   1
+0   0   1   1   0   1   1   1   1   1
+1   0   1   0   0   0   0   1   1   1
+1   0   1   0   1   1   0   0   0   1
+1   0   0   0   1   1   0   1   0   1
+1   1   0   1   1   1   0   1   0   1
+1   1   0   1   1   1   0   1   1   1
+1   0   0   1   1   1   0   1   1   1
+1   0   1   1   1   1   1   1   1   1
+1   1   1   1   1   1   1   1   1   1
+
+Como output, temos:
+"Nao existe um caminho para a saida!"
+
+Perceba que não ha mesmo um caminho para a saída! Portanto, meu algoritmo funciona de forma desejada.
+
+OBS. Para rodar este algoritmo, digite em seu terminal: make encadeada
