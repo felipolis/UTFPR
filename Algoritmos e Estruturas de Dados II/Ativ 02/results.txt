@@ -1,0 +1,101 @@
+============TESTE 01============
+
+Itens adicionados:
+(r) 70
+        (e) 39
+        (d) 88
+Item removido: 70
+(r) 39
+        (d) 88
+
+============TESTE 02============
+
+Itens adicionados:
+(r) 10
+        (e) 4
+                (e) 2
+                        (d) 3
+                (d) 6
+                        (e) 5
+                        (d) 7
+        (d) 20
+Item removido: 10
+(r) 7
+        (e) 4
+                (e) 2
+                        (d) 3
+                (d) 6
+                        (e) 5
+        (d) 20
+Item removido: 4
+(r) 7
+        (e) 3
+                (e) 2
+                (d) 6
+                        (e) 5
+        (d) 20
+Item removido: 5
+(r) 7
+        (e) 3
+                (e) 2
+                (d) 6
+        (d) 20
+
+============TESTE 03============
+
+Itens adicionados:
+(r) 30
+        (e) 15
+                (e) 4
+                        (e) 0
+                        (d) 7
+                (d) 20
+                        (e) 17
+                                (d) 19
+                        (d) 25
+        (d) 50
+                (e) 40
+                        (d) 47
+Item removido: 0
+(r) 30
+        (e) 15
+                (e) 4
+                        (d) 7
+                (d) 20
+                        (e) 17
+                                (d) 19
+                        (d) 25
+        (d) 50
+                (e) 40
+                        (d) 47
+Item removido: 30
+(r) 30
+        (e) 15
+                (e) 7
+                (d) 20
+                        (e) 17
+                                (d) 19
+                        (d) 25
+        (d) 50
+                (e) 40
+                        (d) 47
+Item removido: 15
+(r) 30
+        (e) 7
+                (d) 20
+                        (e) 17
+                                (d) 19
+                        (d) 25
+        (d) 50
+                (e) 40
+                        (d) 47
+Item removido: 20
+(r) 30
+        (e) 7
+                (d) 19
+                        (e) 17
+                        (d) 25
+        (d) 50
+                (e) 40
+                        (d) 47
+
