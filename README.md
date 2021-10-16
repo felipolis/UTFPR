@@ -4,7 +4,7 @@
 
 1st Period: FINISHED
 
-2nd period: ...
+2nd period: FINISHED
 
 3rd period: ...
 
