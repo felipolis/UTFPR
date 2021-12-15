@@ -1,0 +1,16 @@
+T1(_atr1_, _atr2_, atr3, atr4, atr5, atr6, atr7, atr8)
+
+{atr1, atr2} -> {atr3, atr4, atr5}
+atr4 -> {atr6}
+atr5 -> {atr7}
+atr7 -> {atr8}
+
+-------------------RESPOSTA---------------
+Está na 1FN? SIM
+Está na 1FN? SIM
+Está na 1FN? NÃO
+
+    T1(_atr1_, _atr2_, atr3, atr4, atr5)
+    T2(_atr4_(FK), atr6)
+    T3(_atr5_(FK), atr7)
+    T4(_atr7_(FK), atr8)
