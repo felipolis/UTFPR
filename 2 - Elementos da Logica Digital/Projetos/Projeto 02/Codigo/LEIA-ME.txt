@@ -1,0 +1,10 @@
+Grupo formado por:
+-Felipe Archanjo da Cunha Mendes RA:2252740
+-Pamella Lissa Sato Tamura RA:2254107
+
+Atribuições:
+Utilizamos a biblioteca PUCTools para o efeito sonoro do alarme.
+Se trata de uma biblioteca.jar que esta no arquivo .zip.
+
+LINK do video:
+https://youtu.be/pHWClDIa3CA

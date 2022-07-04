@@ -1,0 +1,13 @@
+
+TRABALHO FEITO POR:
+-Felipe Archanjo da Cunha Mendes RA:2252740
+-Pamella Lissa Sato Tamura RA:2254107
+
+BIBLIOTECAS USADAS:
+-PUCTools
+
+VIDEO:
+https://www.youtube.com/watch?v=nu25f-3FWac
+
+OBS. Ativar o pulso para melhor representação dos projetos no logisim.
+[Simular] -> [Pulso Habilitado]
