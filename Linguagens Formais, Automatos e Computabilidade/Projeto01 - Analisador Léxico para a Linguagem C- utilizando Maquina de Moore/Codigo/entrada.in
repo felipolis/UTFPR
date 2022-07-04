@@ -1,0 +1,4 @@
+int main(){
+    int variavel = 5;
+    return variavel + 7;
+}
