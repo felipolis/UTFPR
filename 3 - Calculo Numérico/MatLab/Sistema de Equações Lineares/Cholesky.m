@@ -1,0 +1,11 @@
+A = input('Insira as entradas da matriz A: por exemplo,  [4 2 -4;2 10 4; -4 4 9]\n ');
+B=input('Insira a matriz B: por exemplo, [0; 6; 5]\n');
+G=chol(A);
+disp('A Matriz Triangular inferior G é');
+disp(G);
+disp('Solução do sistema linear G*Y=B:');
+Y = G'\B;
+disp(Y);
+disp('Solução do sistema linear G^t*X=Y:');
+X=G\Y;
+disp(X);
