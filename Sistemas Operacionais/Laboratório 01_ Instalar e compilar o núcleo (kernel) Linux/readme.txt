@@ -1,3 +1,0 @@
-- Equipes: 4 pessoas.
-- Realizar os procedimentos descritos no arquivo em anexo.
-- Enviar o relatório em formato PDF.
