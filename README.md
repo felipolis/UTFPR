@@ -8,7 +8,7 @@
 
 3rd period: FINISHED
 
-4th Period: ...
+4th Period: FINISHED
 
 5th Period: ...
 
