@@ -1,0 +1,1 @@
+unsigned int fibo(unsigned short int n);
