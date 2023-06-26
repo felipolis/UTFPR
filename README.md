@@ -10,7 +10,7 @@
 
 4th Period: FINISHED
 
-5th Period: ...
+5th Period: FINISHED
 
 6th Period: ...
 
