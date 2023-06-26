@@ -1,0 +1,22 @@
+-----------
+Guia Rápido
+-----------
+
+Instalar:
+---------
+
+pip3 install grpcio
+pip3 install grpcio-tools
+
+
+Compilar:
+---------
+
+python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. helloworld.proto
+
+
+Executar:
+---------
+
+python3 server.py
+python3 client.py

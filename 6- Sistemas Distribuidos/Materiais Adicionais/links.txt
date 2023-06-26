@@ -1,0 +1,45 @@
+Ferramenta Web para diagramas de sequência/tempo: https://www.websequencediagrams.com/
+
+Ferramenta Web de diagramas de sequência: https://sequencediagram.org/
+
+Ferramenta para especificar protocolos: http://www.luismg.com/protocol/
+
+Especificar protocolos em latex com bytefield package: http://linorg.usp.br/CTAN/macros/latex/contrib/bytefield/bytefield.pdf
+
+Sockets em Python - Tutorial Ninja: https://realpython.com/python-sockets/
+
+Protocol Buffers: https://developers.google.com/protocol-buffers/
+
+JavaScript Object Notation (JSON): http://www.json.org/
+
+eXtensible Markup Language (XML): http://www.w3schools.com/xml/
+
+Sun XDR: https://www.ietf.org/rfc/rfc1832.txt
+
+Common Data Representaion (CDR): http://www.omg.org/cgi-bin/doc?formal/02-06-51.pdf
+
+Computação em Nuvem-HPC: https://moodle.utfpr.edu.br/pluginfile.php/133381/mod_resource/content/1/cloud_hpc_Kraemer.pdf
+
+Tutorial gRPC com java: https://moodle.utfpr.edu.br/pluginfile.php/617884/mod_resource/content/1/gRPC_Java_tutorial.pdf
+
+Windows RPC: https://docs.microsoft.com/en-us/windows/win32/rpc/rpc-start-page
+
+Paxos Simplified (youtube): https://www.youtube.com/watch?v=SRsK-ZXTeZ0
+
+Microservices Authentication: https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a
+
+Distributed architecture concepts I learned while building a large payments system: https://blog.pragmaticengineer.com/distributed-architecture-concepts-i-have-learned-while-building-payments-systems/
+
+Why Logical Clocks are Easy: https://queue.acm.org/detail.cfm?id=2917756
+
+Artigo - Implementing Remote Procedure Calls: http://www.kohala.com/start/papers.others/birrell.nelson.1984.html
+
+Logging best practices: https://www.sentinelone.com/blog/the-10-commandments-of-logging/
+
+Conceitos-chave para Message Queue Services: https://www.cloudamqp.com/blog/part4-rabbitmq-for-beginners-exchanges-routing-keys-bindings.html
+
+Noje.js Architecture - Best Practices: https://scoutapm.com/blog/nodejs-architecture-and-12-best-practices-for-nodejs-development
+
+Java sockets I/O: blocking, non-blocking and asynchronous: https://liakh-aliaksandr.medium.com/java-sockets-i-o-blocking-non-blocking-and-asynchronous-fb7f066e4ede
+
+Patterns of Distributed Systems: https://martinfowler.com/articles/patterns-of-distributed-systems/

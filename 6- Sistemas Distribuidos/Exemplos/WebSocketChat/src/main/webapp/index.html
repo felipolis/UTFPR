@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Chat</title>
+    </head>
+    <body>
+
+        <table>
+            <tr>
+                <td colspan="2">
+                    <input type="text" id="username" placeholder="Username"/>
+                    <button type="button" onclick="connect();" >Connect</button>
+                    <button type="button" onclick="disconnect();" >Disconnect</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea readonly rows="10" cols="50" id="msgarea" style="width: 324px; height: 170px;"></textarea>
+                    <select name="usersList" id="usersList" size=10 >
+                        <option value="TODOS" selected="selected">TODOS</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" size="51" id="msg" placeholder="Message"/>
+                    <button type="button" onclick="send();" >Send</button>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+    <script src="websocket.js"></script>
+
+</html>

@@ -1,0 +1,108 @@
+syntax = "proto3";
+
+message Awards {
+  int32 wins = 1;
+  int32 nominations = 2;
+  string text = 3;
+}
+
+message Movie {
+  string id = 1;
+  string plot = 2;
+  repeated string genres = 3;
+  int32 runtime = 4;
+  repeated string cast = 5;
+  int32 num_mflix_comments = 6;
+  string title = 7;
+  string fullplot = 8;
+  repeated string countries = 9;
+  repeated string directors = 10;
+  string rated = 11;
+  Awards awards = 12;
+  int32 year = 13;
+}
+
+
+
+message CreateMovieRequest {
+  string plot = 1;
+  repeated string genres = 2;
+  int32 runtime = 3;
+  repeated string cast = 4;
+  int32 num_mflix_comments = 5;
+  string title = 6;
+  string fullplot = 7;
+  repeated string countries = 8;
+  repeated string directors = 9;
+  string rated = 10;
+  Awards awards = 11;
+  int32 year = 12;
+}
+
+message CreateMovieResponse {
+  int32 status = 1;
+  string id = 2;
+}
+
+
+message UpdateMovieRequest {
+  string movie_id = 1;
+  optional string plot = 2;
+  repeated string genres = 3;
+  optional int32 runtime = 4;
+  repeated string cast = 5;
+  optional int32 num_mflix_comments = 6;
+  optional string title = 7;
+  optional string fullplot = 8;
+  repeated string countries = 9;
+  repeated string directors = 10;
+  optional string rated = 11;
+  optional Awards awards = 12;
+  optional int32 year = 13;
+}
+
+message UpdateMovieResponse {
+  int32 status = 1;
+  string id = 2;
+}
+
+
+message GetMovieRequest {
+  string movie_id = 1;
+}
+
+message GetMovieResponse {
+  int32 status = 1;
+  Movie movie = 2;
+}
+
+
+message DeleteMovieRequest {
+  string movie_id = 1;
+}
+
+message DeleteMovieResponse {
+  int32 status = 1;
+  string id = 2;
+}
+
+
+message GetMoviesByActorRequest {
+  string actor = 1;
+}
+
+message GetMoviesByActorResponse {
+  int32 status = 1;
+  repeated Movie movies = 2;
+}
+
+
+message GetMoviesByCategoryRequest {
+  string category = 1;
+}
+
+message GetMoviesByCategoryResponse {
+  int32 status = 1;
+  repeated Movie movies = 2;
+}
+

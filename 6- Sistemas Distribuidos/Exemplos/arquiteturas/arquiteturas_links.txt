@@ -1,0 +1,5 @@
+https://www.c-sharpcorner.com/UploadFile/rkartikcsharp/service-oriented-architecture-soa/
+https://microservices.io/patterns/apigateway.html
+https://pt.wikipedia.org/wiki/Ficheiro:Protonmail_system_architecture_2014.png
+https://success.emssoftware.com/Content/WebApp/A_V44.1/A_InstallationGuide/WebApp_SystemArchitecture.html?TocPath=Installation%20Guides|EMS%20Web%20App|Introduction|_____1
+https://arxiv.org/abs/1404.7494

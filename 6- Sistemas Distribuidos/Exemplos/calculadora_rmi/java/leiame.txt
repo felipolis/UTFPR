@@ -1,0 +1,11 @@
+Como executar:
+
+1. Iniciar o servidor de nomes:
+rmiregistry
+
+2. Executar o servidor:
+java Servidor
+
+3. Executar o cliente:
+java Cliente
+
