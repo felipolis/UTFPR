@@ -1,0 +1,27 @@
+int main(){
+	int a = 0;
+	int b = 10;
+ int c = 5;
+ int d = 1;
+  
+	for (c;c > 0; c = c -d){
+	 a = a + b;
+	}
+}
+
+LOAD R0 11
+LOAD R1 12
+LOAD R2 13
+LOAD R3 14
+OR R2 R2 R2
+BZERO 9
+SUB R2 R2 R3
+ADD R0 R0 R1
+BRANCH 4
+STORE 11 R0
+HALT
+0
+10
+5
+1
+	

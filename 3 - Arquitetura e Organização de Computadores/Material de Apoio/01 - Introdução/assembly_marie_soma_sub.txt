@@ -1,0 +1,10 @@
+	ORG 300
+	
+	Load	 X	/Carrega a variael X
+	Add 	 Y	/Somar o valor de Y, armazena resultado em AC
+	Subt	 Z        /Subtrai o valor de Z, armazena resultado em AC
+	Store	Y	/Armazena AC em Y
+	Halt
+X,	Hex 	0003 /posicao 305 da memoria
+Y,	Hex	 0002 /posicao 306 da memoria
+Z,	Hex	 0004 /posicao 307 da memoria

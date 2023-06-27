@@ -1,0 +1,31 @@
+int main() {
+	int a = 9;
+	int b = 1;
+	int c = 0;
+
+	c = a + b;
+	}
+}
+
+
+
+LOAD R0 5							// carrega posicao de memoria 5 em R0
+LOAD R1 6							// carrega posicao de memoria 6 em R1
+ADD R2 R0 R1				// adiciona R0 e R1, armazena em R2
+STORE 7 R2						// armazena R2 na posicao de memoria 7
+HALT												// parada
+9															// dado a ser somado: 9
+1															// dado a ser somado: 1
+0															// posicao onde a soma eh armazenada
+
+	
+
+
+1000000100000101 // carrega posicao de memoria 5 em R0
+1000000100100110 // carrega posicao de memoria 6 em R1
+1010000100100001 // adiciona R0 e R1, armazena em R2
+1000001001000111 // armazena R2 na posicao de memoria 7
+1111111111111111 // parada
+0000000000001001 // dado a ser somado: 9
+0000000000000001 // dado a ser somado: 1
+0000000000000000 // posicao onde a soma eh armazenada

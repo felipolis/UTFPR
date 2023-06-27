@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "shunting_yard.h": "c",
+        "stdio.h": "c"
+    }
+}

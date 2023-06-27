@@ -1,0 +1,43 @@
+mysql -u root -p
+
+show databases;
+
+create database nome
+use nome
+
+show tables
+
+create table ALUNOS(ra integer, nome varchar(100));
+INSERT INTO ALUNOS(ra, nome) VALUES(1, 'felipe');
+SELECT ra, nome FROM ALUNOS;
+SELECT NOME FROM ALUNOS;
+
+INSERT INTO ALUNOS(ra, nome) VALUES(2, 'Isaac'), (3, 'Marcos');
+
+INSERT INTO ALUNOS(ra, nome) VALUES(1, 'Ayrton');
+
+drop table ALUNOS
+
+
+create table ALUNOS(ra integer primary key, nome varchar(100));
+INSERT INTO ALUNOS(ra, nome) VALUES(1, 'felipe');
+INSERT INTO ALUNOS(ra, nome) VALUES(2, 'Isaac'), (3, 'Marcos');
+INSERT INTO ALUNOS(ra, nome) VALUES(1, 'Ayrton');
+
+UPDATE ALUNOS SET nome='Ayrton' WHERE ra=1;
+
+UPDATE ALUNOS SET nome='Felipe' WHERE nome='Ayrton';
+INSERT INTO ALUNOS(ra, nome) VALUES(4, 'felipe');
+UPDATE ALUNOS SET nome='Ayrton' WHERE nome='Felipe';
+
+DELETE FROM ALUNOS WHERE ra=4;
+
+//delete from alunos -> remove os elementos da tabela
+
+select * from ALUNOS;
+select ra from ALUNOS WHERE nome='Felipe';
+select nome from ALUNOS WHERE ra>=3;
+select ra, nome from ALUNOS WHERE ra MOD 2 = 0;
+select ra, nome from ALUNOS ORDER BY nome;
+select ra, nome from ALUNOS ORDER BY nome DESC;
+select ra, nome from ALUNOS ORDER BY ra DESC;

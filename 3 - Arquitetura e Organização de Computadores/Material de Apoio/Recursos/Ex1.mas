@@ -1,0 +1,11 @@
+	ORG 100
+	
+	Load	 X	/Carrega a variael X
+	Subt	 Y	/Subtrai o valor de Y, armazena resultado em AC
+	Store	 Z	/Armazena AC em Z
+	Halt
+X,	Dec 35	/Carregado na variavel de controle 0023H
+Y,	Dec	 -23	/Subtraido da variavel de controle FFE9H (complemento 2)
+Z,	Hex	 0000
+	END
+	
