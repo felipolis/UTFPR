@@ -1,0 +1,219 @@
+Favor colocar seu nomem e RA abaixo.
+
+Declaro que recebi e resolvi essa prova em caráter privado e a sem utilização de mecanismos proibidos, como o compartilhamento de soluções entre alunos.
+
+Nome: FELIPE ARCHANJO DA CUNHA MENDES
+RA: 2252740
+
+
+
+
+Exercício 1:
+============
+// coloque seu código nesse espaço
+
+#include <stdio.h>
+
+int main(){
+
+    //Declaração de variaveis
+
+    float horas, valor, salarioliq, valorimposto;
+
+    //input e output
+
+    printf("Digite a quantidade de horas trabalhadas em um mes: ");
+    scanf("%f", &horas);
+
+    printf("Digite o valor da hora trabalhada: ");
+    scanf("%f", &valor);
+
+    //Calculos
+
+    salarioliq = (horas * valor) - (horas * valor * 0.085);
+
+    valorimposto = (12 * salarioliq);
+
+    //Condicionais
+
+    if(valorimposto <= 2345.66){
+        printf("Seu salario anual eh: %.2f\n", valorimposto);
+        printf("ISENTO de imposto de renda");
+    } else if(valorimposto <= 3456.78){
+        printf("Seu salario anual eh: %.2f\n", valorimposto);
+        printf("7.5%% de imposto de renda");
+    } else if(valorimposto <= 4567.89){
+        printf("Seu salario anual eh: %.2f\n", valorimposto);
+        printf("15%% de imposto de renda");
+    } else if(valorimposto <= 5678.90){
+        printf("Seu salario anual eh: %.2f\n", valorimposto);
+        printf("22.5%% de imposto de renda");
+    } else{
+        printf("Seu salario anual eh: %.2f\n", valorimposto);
+        printf("27.5%% de imposto de renda");
+    }
+
+    return 0;
+}
+
+
+Exercício 2:
+============
+// coloque os números das instruções para formar as matrizes em cada espaço
+
+Resposta Matriz A:
+
+12 5 2 3 8 1
+
+Resposta Matriz B:
+
+12 5 2 3 4 8 1
+
+Resposta Matriz C:
+
+12 5 2 3 6 1
+
+Resposta Matriz D:
+
+12 5 2 3 7 1
+
+
+Exercício 3:
+============
+// coloque seu código nesse espaço
+
+
+#include <stdio.h>
+#include <string.h>
+
+struct cadastro{
+    char nome[60];
+    int idade;
+    float peso;
+    float altura;
+}aluno[2];
+
+int main(){
+
+    int i, index1, index2, num;
+    float media, soma, maior, menor;
+
+    //Cadastro
+
+    for(i = 0; i < 10; i++){
+
+        printf("===========CADASTRO CLIENTE [%d]===========\n", i + 1);
+        printf("Nome: ");
+        scanf(" %[^\n]", aluno[i].nome);
+        printf("Idade: ");
+        scanf(" %d", &aluno[i].idade);
+        printf("Peso: ");
+        scanf(" %f", &aluno[i].peso);
+        printf("Altura: ");
+        scanf(" %f", &aluno[i].altura);
+        printf("\n\n");
+
+    }
+
+    //Media turma
+
+    for(i = 0; i < 10; i++){
+
+        soma = soma + aluno[i].altura;
+        num = i + 1;
+    }
+    media = (float)soma/num;
+    printf("A media das alturas dos alunos eh: %.2f", media);
+    printf("\n");
+
+    //Nome Maior peso
+    maior = aluno[0].peso;
+    for(i = 0; i < 10; i++){
+
+        if(aluno[i].peso > maior){
+            maior = aluno[i].peso;
+            index1 = i;
+        }
+
+    }
+    printf("o nome do mais pesado eh: %s", aluno[index1].nome);
+    printf("\n");
+
+    //Nome Menor peso
+    menor = aluno[0].peso;
+    for(i = 0; i < 10; i++){
+
+        if(aluno[i].peso < maior){
+            maior = aluno[i].peso;
+            index2 = i;
+        }
+
+    }
+    printf("o nome do mais leve eh: %s", aluno[index2].nome);
+    printf("\n");
+
+    return 0;
+}
+
+
+Exercício 4:
+============
+// coloque o código de cada item no espaço correspondente
+
+4.1: 
+
+struct dados{
+
+    char nome[50];
+    int idade;
+    float media;
+    int flag;
+
+}alunos[20];
+
+4.2:
+
+void cadastro(){
+
+    int i;
+    for(i = 0; i < 20; i++){
+        printf("Nome: "); 
+        scanf(" %[^\n]", alunos[i].nome);
+        printf("Idade: ");
+        scanf(" %d", alunos[i].idade);
+        printf("Media: ");
+        scanf(" %d", alunos[i].media);
+        alunos[i].flag = 1;
+    }
+}
+
+4.3:
+
+void reprovados(){
+    int i;
+    for(i = 0; i < 20; i++){
+
+        if(alunos[i].media < 6){
+
+            printf("%s", alunos[i].nome);
+            printf("%.2f", alunos[i].media);
+
+        }
+    }
+}
+
+4.4:
+
+void mediareprovados(){
+    int i, soma, aux = 0;
+    float media;
+    for(i = 0; i < 20; i++){
+        if(alunos[i].media < 6){
+            soma = soma + alunos[i].media;
+            aux++;
+        }
+    }
+    media = (float)soma/aux;
+    printf("%.2f", media);
+}
+
