@@ -1,0 +1,19 @@
+Ferramenta para gerenciamento de referências bibliográficas: https://www.mendeley.com/reference-manager/library/all-references
+
+Repositórios digitais
+ACM Digital Library: https://dl.acm.org/
+IEEE Xplore: https://ieeexplore.ieee.org/Xplore/home.jsp
+Scopus: https://www.scopus.com/
+Google Acadêmico: https://scholar.google.com/
+ScienceDirect: https://www.sciencedirect.com/
+SpringerLink: https://link.springer.com/
+dblp: computer science: https://dblp.org/
+SOL - SBC OpenLib: https://sol.sbc.org.br/index.php/indice
+Wiley Online Library: https://onlinelibrary.wiley.com/
+arXiv: https://arxiv.org/search/cs
+
+Métricas de veículos de publicação
+Qualis CAPES/CC: https://ppgcc.github.io/discentesPPGCC/pt-BR/qualis/
+Google H5: https://scholar.google.com/citations?view_op=top_venues
+CiteScore (Scopus) : https://www.scopus.com/sources.uri
+JCR (Web of Science): https://jcr.clarivate.com/jcr/home
