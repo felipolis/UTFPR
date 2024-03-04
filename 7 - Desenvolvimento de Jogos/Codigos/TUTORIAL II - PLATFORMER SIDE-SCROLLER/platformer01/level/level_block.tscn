@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4j3wmxqh4umg"]
+
+[ext_resource type="Script" path="res://level/level_block.gd" id="1_8x30u"]
+[ext_resource type="Texture2D" uid="uid://dd7ed45m48kkj" path="res://level/brick.png" id="2_v4548"]
+[ext_resource type="Script" path="res://level/polygon_border.gd" id="3_dm0nl"]
+
+[node name="Level" type="StaticBody2D"]
+script = ExtResource("1_8x30u")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_v4548")
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 192, 56, 192, 80, 224, 112, 224, 152, 200, 184, 200, 184, 232, 232, 232, 232, 160, 288, 160, 288, 208, 368, 208, 368, 192, 392, 192, 392, 264, 416, 264, 416, 280, 280, 280, 280, 296, 240, 296, 240, 280, 128, 280, 128, 296, 88, 296, 88, 280, 16, 280, 16, 336, 472, 336, 472, 232, 536, 232, 536, 64, 560, 64, 560, 248, 488, 248, 488, 336, 560, 336, 616, 336, 616, 64, 616, 16, 16, 16, 16, 0, 640, 0, 640, 360, 0, 360)
+script = ExtResource("3_dm0nl")
+outline_color = Color(0.490196, 0.270588, 0.0666667, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 192, 56, 192, 80, 224, 112, 224, 152, 200, 184, 200, 184, 232, 232, 232, 232, 160, 288, 160, 288, 208, 368, 208, 368, 192, 392, 192, 392, 264, 416, 264, 416, 280, 280, 280, 280, 296, 240, 296, 240, 280, 128, 280, 128, 296, 88, 296, 88, 280, 16, 280, 16, 336, 472, 336, 472, 232, 536, 232, 536, 64, 560, 64, 560, 248, 488, 248, 488, 336, 560, 336, 616, 336, 616, 64, 616, 16, 16, 16, 16, 0, 640, 0, 640, 360, 0, 360)

@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://c1kf7suay2e86"]
+
+[ext_resource type="Texture2D" uid="uid://ddw3eyx582quk" path="res://src/assets/items/Food (16 x 16).png" id="1_7jhp7"]
+[ext_resource type="Script" path="res://src/scripts/fish.gd" id="1_nk37y"]
+[ext_resource type="Texture2D" uid="uid://b0npfdhqd781q" path="res://src/assets/effects/Orange_Sparkle (16 x 16).png" id="2_bf3dc"]
+[ext_resource type="AudioStream" uid="uid://cn73hgdocb8o6" path="res://src/assets/sounds/fish.wav" id="4_wmds4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo0l1"]
+atlas = ExtResource("2_bf3dc")
+region = Rect2(0, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jliwt"]
+atlas = ExtResource("2_bf3dc")
+region = Rect2(20, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prshf"]
+atlas = ExtResource("2_bf3dc")
+region = Rect2(40, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbxs4"]
+atlas = ExtResource("2_bf3dc")
+region = Rect2(60, 0, 20, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4t6j"]
+atlas = ExtResource("1_7jhp7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5vtr"]
+atlas = ExtResource("1_7jhp7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf7mw"]
+atlas = ExtResource("1_7jhp7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykv2s"]
+atlas = ExtResource("1_7jhp7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbkwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo0l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jliwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prshf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbxs4")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4t6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5vtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf7mw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykv2s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mskk"]
+
+[node name="fish" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_nk37y")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pbkwc")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7mskk")
+
+[node name="fishSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wmds4")
+volume_db = -8.02
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

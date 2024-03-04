@@ -1,0 +1,287 @@
+[gd_scene load_steps=23 format=3 uid="uid://hiyw54obfhn"]
+
+[ext_resource type="Script" path="res://src/scripts/main_menu.gd" id="1_3s4d2"]
+[ext_resource type="Texture2D" uid="uid://c5f4141nir1o0" path="res://src/assets/tilesets/1 - Grassland/background/4 - Sky_color.png" id="1_u2n3n"]
+[ext_resource type="Texture2D" uid="uid://s0ffb5jo7ch" path="res://src/assets/tilesets/1 - Grassland/background/3 - Cloud_cover_2.png" id="2_no47q"]
+[ext_resource type="Shader" path="res://src/shaders/movement_clouds.gdshader" id="3_5mnp3"]
+[ext_resource type="Texture2D" uid="uid://bs8qtcgm2r4q" path="res://src/assets/tilesets/1 - Grassland/background/2 - Cloud_cover_1.png" id="3_drlgm"]
+[ext_resource type="Texture2D" uid="uid://behvkvlmyb1lv" path="res://src/assets/tilesets/1 - Grassland/background/1 - Foreground_scenery.png" id="4_e41sn"]
+[ext_resource type="Texture2D" uid="uid://d2kh2br6npxgw" path="res://src/assets/frajola/Licking (32 x 32).png" id="6_xpywi"]
+[ext_resource type="FontFile" uid="uid://jv0itu46v2vp" path="res://src/assets/fonts/RevMiniPixel.ttf" id="7_tl57e"]
+[ext_resource type="Script" path="res://src/scripts/transition.gd" id="9_7klxw"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="10_gvmmh"]
+[ext_resource type="Script" path="res://src/scripts/color_rect.gd" id="11_1jm2i"]
+[ext_resource type="AudioStream" uid="uid://42th6de48rrr" path="res://src/assets/sounds/main_menu.mp3" id="12_r1hko"]
+[ext_resource type="Texture2D" uid="uid://d38yscvjconym" path="res://src/assets/controls/ui_buttons_full_NORMAL.png" id="13_ioudl"]
+[ext_resource type="Texture2D" uid="uid://c1ndwe3m6t5xw" path="res://src/assets/controls/ui_buttons_full_PRESSED.png.png" id="14_bg0q4"]
+[ext_resource type="Script" path="res://src/scripts/fullscreen.gd" id="15_4dyft"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r36pv"]
+shader = ExtResource("3_5mnp3")
+shader_parameter/move_speed = 0.02
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wieku"]
+atlas = ExtResource("6_xpywi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qupbj"]
+atlas = ExtResource("6_xpywi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8kni"]
+atlas = ExtResource("6_xpywi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bwsp"]
+atlas = ExtResource("6_xpywi")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jsu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wieku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qupbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8kni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bwsp")
+}],
+"loop": true,
+"name": &"lincking",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alq3a"]
+shader = ExtResource("10_gvmmh")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(1, 1, 1, 1)
+shader_parameter/line_color_b = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3s4d2")
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="04" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/04"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("1_u2n3n")
+
+[node name="03" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/03"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("2_no47q")
+
+[node name="02" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/02"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_r36pv")
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("3_drlgm")
+
+[node name="01" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/01"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("4_e41sn")
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(872, 144)
+scale = Vector2(29.3125, 29.3125)
+sprite_frames = SubResource("SpriteFrames_2jsu7")
+animation = &"lincking"
+autoplay = "lincking"
+frame_progress = 0.196343
+
+[node name="title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -544.0
+offset_top = 46.0
+offset_right = 328.0
+offset_bottom = 136.0
+grow_horizontal = 2
+
+[node name="title" type="Label" parent="title"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 90
+text = "Seven Lives"
+uppercase = true
+
+[node name="subtitle" type="Label" parent="title"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 30
+text = "The Frajola's Adventures"
+uppercase = true
+
+[node name="buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -268.0
+offset_right = 504.0
+offset_bottom = -32.0
+grow_vertical = 0
+
+[node name="new_game_button" type="Button" parent="buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 47
+text = "New Game"
+
+[node name="select_level_button" type="Button" parent="buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 47
+text = "Select Level"
+
+[node name="controls_button" type="Button" parent="buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 47
+text = "Instructions"
+
+[node name="credits_button" type="Button" parent="buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 47
+text = "Credits"
+
+[node name="quit_button" type="Button" parent="buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 47
+text = "Quit"
+
+[node name="made_at" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -99.0
+offset_top = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="subtitle" type="Label" parent="made_at"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 16
+text = "UTFPR 2023"
+uppercase = true
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="ui_fullscreen" type="TouchScreenButton" parent="controls"]
+position = Vector2(1096, 46)
+scale = Vector2(0.968749, 0.968749)
+texture_normal = ExtResource("13_ioudl")
+texture_pressed = ExtResource("14_bg0q4")
+visibility_mode = 1
+script = ExtResource("15_4dyft")
+
+[node name="transition" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("9_7klxw")
+
+[node name="color_rect" type="ColorRect" parent="transition"]
+material = SubResource("ShaderMaterial_alq3a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("11_1jm2i")
+
+[node name="score" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 32.0
+offset_top = 264.0
+offset_right = 269.0
+offset_bottom = 320.0
+
+[node name="current_container" type="HBoxContainer" parent="score"]
+layout_mode = 2
+
+[node name="current_Label" type="Label" parent="score/current_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 20
+text = "Current Score:"
+
+[node name="current_value" type="Label" parent="score/current_container"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 16
+text = "10334343"
+
+[node name="record_container" type="HBoxContainer" parent="score"]
+layout_mode = 2
+
+[node name="record_Label" type="Label" parent="score/record_container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 20
+text = "Record:"
+
+[node name="record_value" type="Label" parent="score/record_container"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_tl57e")
+theme_override_font_sizes/font_size = 16
+text = "10334343"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_r1hko")
+autoplay = true
+
+[connection signal="pressed" from="buttons/new_game_button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="buttons/select_level_button" to="." method="_on_select_level_button_pressed"]
+[connection signal="pressed" from="buttons/controls_button" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="buttons/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="buttons/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="controls/ui_fullscreen" to="controls/ui_fullscreen" method="_on_pressed"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpkxppp34cc5a"]
+
+[ext_resource type="Texture2D" uid="uid://4hrvabritkh5" path="res://background/scrolling_objects/cloud_small.png" id="1_tf0uh"]
+[ext_resource type="Texture2D" uid="uid://b8yvxnyreem1f" path="res://background/scrolling_objects/cloud_wide.png" id="2_kdkoc"]
+
+[node name="Clouds_plane" type="Node2D"]
+
+[node name="CloudSmall" type="Sprite2D" parent="."]
+position = Vector2(50, 34)
+texture = ExtResource("1_tf0uh")
+
+[node name="CloudSmall3" type="Sprite2D" parent="."]
+position = Vector2(212, 34)
+texture = ExtResource("1_tf0uh")
+
+[node name="CloudSmall4" type="Sprite2D" parent="."]
+position = Vector2(472, 27)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_tf0uh")
+
+[node name="CloudSmall2" type="Sprite2D" parent="."]
+position = Vector2(366, 34)
+texture = ExtResource("1_tf0uh")
+
+[node name="CloudWide5" type="Sprite2D" parent="."]
+position = Vector2(168, 31)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_kdkoc")
+
+[node name="CloudWide7" type="Sprite2D" parent="."]
+position = Vector2(271, 37)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_kdkoc")
+
+[node name="CloudWide8" type="Sprite2D" parent="."]
+position = Vector2(81, 37)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_kdkoc")
+
+[node name="CloudWide2" type="Sprite2D" parent="."]
+position = Vector2(400, 34)
+texture = ExtResource("2_kdkoc")
+
+[node name="CloudWide3" type="Sprite2D" parent="."]
+position = Vector2(557, 39)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_kdkoc")
+
+[node name="CloudWide6" type="Sprite2D" parent="."]
+position = Vector2(601, 31)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_kdkoc")

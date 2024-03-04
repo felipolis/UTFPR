@@ -1,0 +1,32 @@
+Recursos a fazer no tutorial:
+
+	PLAYER
+	- Esquiva com rolagem (Heart Beast)
+
+	ARMA
+	- Ataque de curto alcance "soco" Alex Kidd (Heart Beast)
+	- Ataque tiro com várias configurações (quantidade, abertura, noise, etc)
+	- Bomba (local)
+
+	INIMIGOS
+	- Spawner de esquadra
+
+	LEVEL
+	- Switch para abrir porta, ponte, passagem, etc
+	- Soco quebrar blocos do cenário
+	- Plataformas frágeis
+	- Plataformas móveis
+	- Portais
+	- Porta + Chave (repetir do outro tutorial)
+
+	EFEITOS
+	- Usar World Enviornment Node
+
+  - TileMap: 
+    + Atlas
+    + Auto tile
+    + Objetos
+  
+  - ParallaxBackground
+  
+  - WorldEnvironment

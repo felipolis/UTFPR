@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm8voxlsi4ca4"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_dbkxk"]
+[ext_resource type="Texture2D" uid="uid://fyvwawtcj3c8" path="res://Enemy/enemy.png" id="1_wqcv2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uqe1"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hehuv"]
+radius = 8.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_dbkxk")
+min_speed = 100.0
+max_speed = 250.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5uqe1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.0156863, 0, 1)
+texture = ExtResource("1_wqcv2")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_hehuv")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

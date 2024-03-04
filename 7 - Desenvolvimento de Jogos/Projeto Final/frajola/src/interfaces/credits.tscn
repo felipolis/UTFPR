@@ -1,0 +1,197 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwif60mf5bpco"]
+
+[ext_resource type="Script" path="res://src/scripts/credits.gd" id="1_s656t"]
+[ext_resource type="FontFile" uid="uid://jv0itu46v2vp" path="res://src/assets/fonts/RevMiniPixel.ttf" id="2_rxvd5"]
+[ext_resource type="Script" path="res://src/scripts/transition.gd" id="3_y8qeb"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="4_gmctf"]
+[ext_resource type="Script" path="res://src/scripts/color_rect.gd" id="5_th2nd"]
+[ext_resource type="Texture2D" uid="uid://d38yscvjconym" path="res://src/assets/controls/ui_buttons_full_NORMAL.png" id="6_1c7wx"]
+[ext_resource type="Texture2D" uid="uid://c1ndwe3m6t5xw" path="res://src/assets/controls/ui_buttons_full_PRESSED.png.png" id="7_ev8vf"]
+[ext_resource type="Script" path="res://src/scripts/fullscreen.gd" id="8_42o27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnvvt"]
+shader = ExtResource("4_gmctf")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(1, 1, 1, 1)
+shader_parameter/line_color_b = Color(0, 0, 0, 1)
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s656t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="credits" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -28.0
+offset_right = 42.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+
+[node name="created" type="VBoxContainer" parent="credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="credits/created"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.941176, 0, 1)
+theme_override_fonts/font = ExtResource("2_rxvd5")
+theme_override_font_sizes/font_size = 32
+text = "Art & Code"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="credits/created"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Felipe Archanjo da Cunha Mendes"
+horizontal_alignment = 1
+
+[node name="sounds" type="VBoxContainer" parent="credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="credits/sounds"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.941176, 0, 1)
+theme_override_fonts/font = ExtResource("2_rxvd5")
+theme_override_font_sizes/font_size = 32
+text = "Sound Effects"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="credits/sounds"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+theme_override_font_sizes/font_size = 16
+text = "Cat Jumping ___________________ MATRIXXX_ (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="credits/sounds"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Cat Getting Hurt _______________ MATRIXXX_ (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="credits/sounds"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Cat Getting Fishes ____________ ProjectsU012 (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="credits/sounds"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Cat Shotting___________________MATRIXXX_ (freesound.org)"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="credits/sounds"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Cat Atacking ___________________ InspectorJ (freesound.org)"
+horizontal_alignment = 1
+
+[node name="music" type="VBoxContainer" parent="credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="credits/music"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.941176, 0, 1)
+theme_override_fonts/font = ExtResource("2_rxvd5")
+theme_override_font_sizes/font_size = 32
+text = "Music Theme"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="credits/music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Main Menu _______________ CodeManu (opengameart.org)"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="credits/music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Controls Menu ___________ CodeManu (opengameart.org)"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="credits/music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Select Menu _____________ CodeManu (opengameart.org)"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="credits/music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Grassland World _________ CodeManu (opengameart.org)"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="credits/music"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+text = "Mushroom World _________ CodeManu (opengameart.org)"
+horizontal_alignment = 1
+
+[node name="btn_container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -56.0
+offset_right = -15.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="jump" type="Button" parent="btn_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rxvd5")
+theme_override_font_sizes/font_size = 32
+text = "BACK TO MAIN MENU"
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="ui_fullscreen" type="TouchScreenButton" parent="controls"]
+position = Vector2(1096, 46)
+scale = Vector2(0.968749, 0.968749)
+texture_normal = ExtResource("6_1c7wx")
+texture_pressed = ExtResource("7_ev8vf")
+visibility_mode = 1
+script = ExtResource("8_42o27")
+
+[node name="transition" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("3_y8qeb")
+
+[node name="color_rect" type="ColorRect" parent="transition"]
+material = SubResource("ShaderMaterial_tnvvt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_th2nd")
+
+[connection signal="pressed" from="btn_container/jump" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="controls/ui_fullscreen" to="controls/ui_fullscreen" method="_on_pressed"]

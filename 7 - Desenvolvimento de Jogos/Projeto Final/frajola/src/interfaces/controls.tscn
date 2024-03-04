@@ -1,0 +1,290 @@
+[gd_scene load_steps=18 format=3 uid="uid://bo8o65sp0j1tl"]
+
+[ext_resource type="Script" path="res://src/scripts/controls.gd" id="1_1q2yq"]
+[ext_resource type="Texture2D" uid="uid://c5f4141nir1o0" path="res://src/assets/tilesets/1 - Grassland/background/4 - Sky_color.png" id="1_r53y5"]
+[ext_resource type="Texture2D" uid="uid://s0ffb5jo7ch" path="res://src/assets/tilesets/1 - Grassland/background/3 - Cloud_cover_2.png" id="2_4slbj"]
+[ext_resource type="Shader" path="res://src/shaders/movement_clouds.gdshader" id="3_h1isg"]
+[ext_resource type="Texture2D" uid="uid://bs8qtcgm2r4q" path="res://src/assets/tilesets/1 - Grassland/background/2 - Cloud_cover_1.png" id="4_7wxql"]
+[ext_resource type="Texture2D" uid="uid://behvkvlmyb1lv" path="res://src/assets/tilesets/1 - Grassland/background/1 - Foreground_scenery.png" id="5_odhir"]
+[ext_resource type="FontFile" uid="uid://jv0itu46v2vp" path="res://src/assets/fonts/RevMiniPixel.ttf" id="6_iewec"]
+[ext_resource type="Texture2D" uid="uid://bc8806k0vsekq" path="res://src/assets/ui/back.png" id="8_fw4tn"]
+[ext_resource type="AudioStream" uid="uid://cr488cpkr1ecs" path="res://src/assets/sounds/select_menu.mp3" id="9_4nosf"]
+[ext_resource type="Texture2D" uid="uid://d38yscvjconym" path="res://src/assets/controls/ui_buttons_full_NORMAL.png" id="9_ibgnl"]
+[ext_resource type="Script" path="res://src/scripts/transition.gd" id="10_2a4gq"]
+[ext_resource type="Texture2D" uid="uid://c1ndwe3m6t5xw" path="res://src/assets/controls/ui_buttons_full_PRESSED.png.png" id="10_8veck"]
+[ext_resource type="Script" path="res://src/scripts/fullscreen.gd" id="11_0qvp1"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="11_xl8di"]
+[ext_resource type="Script" path="res://src/scripts/color_rect.gd" id="12_0tfqx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ueawg"]
+shader = ExtResource("3_h1isg")
+shader_parameter/move_speed = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77q5l"]
+shader = ExtResource("11_xl8di")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(1, 1, 1, 1)
+shader_parameter/line_color_b = Color(0, 0, 0, 1)
+
+[node name="instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1q2yq")
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="04" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/04"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("1_r53y5")
+
+[node name="03" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/03"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("2_4slbj")
+
+[node name="02" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/02"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ueawg")
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("4_7wxql")
+
+[node name="01" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/01"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("5_odhir")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 192.0
+offset_top = 192.0
+offset_right = -192.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
+
+[node name="main" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -125.0
+offset_right = 356.0
+offset_bottom = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="control" type="VBoxContainer" parent="main"]
+layout_mode = 2
+
+[node name="jump" type="HBoxContainer" parent="main/control"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="main/control/jump"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "JUMP: "
+
+[node name="value" type="Label" parent="main/control/jump"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "W, ARROW_UP, SPACE"
+
+[node name="run" type="HBoxContainer" parent="main/control"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="main/control/run"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "RUN: "
+
+[node name="value" type="Label" parent="main/control/run"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "D or ARROW_RIGHT or A or ARROW_LEFT"
+
+[node name="atack" type="HBoxContainer" parent="main/control"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="main/control/atack"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "ATACK: "
+
+[node name="value" type="Label" parent="main/control/atack"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "SHIFT or P"
+
+[node name="pause" type="HBoxContainer" parent="main/control"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="main/control/pause"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "PAUSE: "
+
+[node name="value" type="Label" parent="main/control/pause"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "ESC"
+
+[node name="fullscreen" type="HBoxContainer" parent="main/control"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="main/control/fullscreen"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "FULLSCREEN: "
+
+[node name="value" type="Label" parent="main/control/fullscreen"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "F11"
+
+[node name="instructions" type="VBoxContainer" parent="main"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="value" type="Label" parent="main/instructions"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 32
+text = "Your goal in this game is to go through all
+the levels without losing your 7 lives. If you
+die, you will restart from the beginning."
+horizontal_alignment = 3
+
+[node name="title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.0
+offset_top = 105.0
+offset_right = 236.0
+offset_bottom = 172.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="title"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_iewec")
+theme_override_font_sizes/font_size = 64
+text = "hOW TO PLAY"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="back_button" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 648.0
+
+[node name="back" type="Button" parent="back_button"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+icon = ExtResource("8_fw4tn")
+expand_icon = true
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="ui_fullscreen" type="TouchScreenButton" parent="controls"]
+position = Vector2(1096, 46)
+scale = Vector2(0.968749, 0.968749)
+texture_normal = ExtResource("9_ibgnl")
+texture_pressed = ExtResource("10_8veck")
+visibility_mode = 1
+script = ExtResource("11_0qvp1")
+
+[node name="transition" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("10_2a4gq")
+
+[node name="color_rect" type="ColorRect" parent="transition"]
+material = SubResource("ShaderMaterial_77q5l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("12_0tfqx")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4nosf")
+autoplay = true
+
+[connection signal="pressed" from="back_button/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="controls/ui_fullscreen" to="controls/ui_fullscreen" method="_on_pressed"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsg0u067awl87"]
+
+[ext_resource type="Script" path="res://src/scripts/hitbox.gd" id="1_3pgcv"]
+[ext_resource type="AudioStream" uid="uid://bsg62pffqoaqp" path="res://src/assets/sounds/atack.wav" id="2_k2bdn"]
+
+[node name="hitbox" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_3pgcv")
+
+[node name="atackSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k2bdn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

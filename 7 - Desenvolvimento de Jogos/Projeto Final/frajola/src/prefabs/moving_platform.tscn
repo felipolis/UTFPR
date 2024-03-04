@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbpeh0nkbkfdt"]
+
+[ext_resource type="Texture2D" uid="uid://ch83df8b3fsvm" path="res://src/assets/tilesets/3 - Others/falling-platform-black (32 x 16).png" id="1_ewier"]
+[ext_resource type="Script" path="res://src/scripts/moving_platform.gd" id="1_uckw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx4yb"]
+size = Vector2(32, 16)
+
+[node name="moving_platform" type="Node2D"]
+script = ExtResource("1_uckw1")
+
+[node name="platform" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+
+[node name="sprite_platform" type="Sprite2D" parent="platform"]
+texture = ExtResource("1_ewier")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+shape = SubResource("RectangleShape2D_wx4yb")
+one_way_collision = true

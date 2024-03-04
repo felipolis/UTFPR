@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ye6658327qxq"]
+
+[ext_resource type="Texture2D" uid="uid://cri3x0rfx2nfq" path="res://background/background.png" id="1_adjyu"]
+[ext_resource type="PackedScene" uid="uid://bg3e8n2axkeim" path="res://background/scrolling_objects/scrolling_clouds.tscn" id="1_i46jw"]
+
+[node name="ParallaxBgObjects" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_adjyu")
+
+[node name="ScrollingClouds1" parent="." instance=ExtResource("1_i46jw")]
+modulate = Color(0.6, 0.733333, 1, 1)
+scroll_speed = -20.0
+
+[node name="ScrollingClouds2" parent="." instance=ExtResource("1_i46jw")]
+modulate = Color(0.721569, 0.815686, 1, 1)
+position = Vector2(-48, 16)
+scroll_speed = -40.0
+
+[node name="ScrollingClouds3" parent="." instance=ExtResource("1_i46jw")]
+modulate = Color(0.85098, 0.901961, 1, 1)
+position = Vector2(-24, 32)
+scroll_speed = -60.0

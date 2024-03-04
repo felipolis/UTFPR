@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bivd306mvm071"]
+
+[ext_resource type="Script" path="res://src/scripts/portal.gd" id="1_0btc6"]
+[ext_resource type="Texture2D" uid="uid://d2dr6ktknshwa" path="res://src/assets/items/Portal (16 x 16).png" id="1_ax2i4"]
+
+[sub_resource type="Animation" id="Animation_k440s"]
+resource_name = "portal"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_var73"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2v52u"]
+_data = {
+"RESET": SubResource("Animation_var73"),
+"portal": SubResource("Animation_k440s")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6qf7"]
+
+[node name="portal" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_0btc6")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_ax2i4")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "portal"
+speed_scale = 0.4
+libraries = {
+"": SubResource("AnimationLibrary_2v52u")
+}
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p6qf7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

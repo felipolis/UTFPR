@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7kmvevr8ogt0"]
+
+[ext_resource type="Script" path="res://src/scripts/fish_rigid.gd" id="1_aqjiw"]
+[ext_resource type="PackedScene" uid="uid://c1kf7suay2e86" path="res://src/prefabs/fish.tscn" id="1_byfx0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7qjv"]
+
+[node name="fish_rigid" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 2
+lock_rotation = true
+script = ExtResource("1_aqjiw")
+
+[node name="fish" parent="." instance=ExtResource("1_byfx0")]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w7qjv")
+
+[connection signal="tree_exited" from="fish" to="." method="_on_fish_tree_exited"]

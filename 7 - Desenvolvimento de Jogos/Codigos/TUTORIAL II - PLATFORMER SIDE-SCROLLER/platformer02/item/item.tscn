@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://ybilt8xnf4t4"]
+
+[ext_resource type="Script" path="res://item/item.gd" id="1_d2a3m"]
+[ext_resource type="Texture2D" uid="uid://cuwgrmwey3cjc" path="res://item/item.png" id="1_ns3wu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mpr"]
+atlas = ExtResource("1_ns3wu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wqdpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mpr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4mpe"]
+radius = 9.0
+
+[sub_resource type="Animation" id="Animation_on6ni"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uskt0"]
+_data = {
+"idle": SubResource("Animation_on6ni")
+}
+
+[node name="Item" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_d2a3m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wqdpl")
+autoplay = "default"
+frame_progress = 0.669387
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w4mpe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_uskt0")
+}

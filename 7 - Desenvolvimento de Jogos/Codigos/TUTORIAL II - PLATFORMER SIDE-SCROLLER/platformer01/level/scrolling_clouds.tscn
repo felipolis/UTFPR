@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg3e8n2axkeim"]
+
+[ext_resource type="Script" path="res://scrolling_objects.gd" id="1_8sr6j"]
+[ext_resource type="PackedScene" uid="uid://cpkxppp34cc5a" path="res://level/clouds_plane.tscn" id="2_n4roe"]
+
+[node name="ScrollingClouds" type="Node2D"]
+script = ExtResource("1_8sr6j")
+
+[node name="Clouds_plane1" parent="." instance=ExtResource("2_n4roe")]
+
+[node name="Clouds_plane2" parent="." instance=ExtResource("2_n4roe")]
+position = Vector2(640, 0)

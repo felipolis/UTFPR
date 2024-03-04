@@ -1,0 +1,271 @@
+[gd_scene load_steps=24 format=3 uid="uid://bqkgnid0unbgu"]
+
+[ext_resource type="Texture2D" uid="uid://c5f4141nir1o0" path="res://src/assets/tilesets/1 - Grassland/background/4 - Sky_color.png" id="1_1kp71"]
+[ext_resource type="Script" path="res://src/scripts/select_level.gd" id="1_27lne"]
+[ext_resource type="Texture2D" uid="uid://s0ffb5jo7ch" path="res://src/assets/tilesets/1 - Grassland/background/3 - Cloud_cover_2.png" id="2_yxrco"]
+[ext_resource type="Shader" path="res://src/shaders/movement_clouds.gdshader" id="3_n1njn"]
+[ext_resource type="Texture2D" uid="uid://bs8qtcgm2r4q" path="res://src/assets/tilesets/1 - Grassland/background/2 - Cloud_cover_1.png" id="4_c86hm"]
+[ext_resource type="Texture2D" uid="uid://behvkvlmyb1lv" path="res://src/assets/tilesets/1 - Grassland/background/1 - Foreground_scenery.png" id="5_t46p7"]
+[ext_resource type="FontFile" uid="uid://jv0itu46v2vp" path="res://src/assets/fonts/RevMiniPixel.ttf" id="6_w3cb0"]
+[ext_resource type="Texture2D" uid="uid://bc8806k0vsekq" path="res://src/assets/ui/back.png" id="7_w3cyu"]
+[ext_resource type="Texture2D" uid="uid://d2kh2br6npxgw" path="res://src/assets/frajola/Licking (32 x 32).png" id="9_bw3x8"]
+[ext_resource type="Script" path="res://src/scripts/transition.gd" id="10_kb8ah"]
+[ext_resource type="Shader" path="res://src/shaders/transition.gdshader" id="11_80vwj"]
+[ext_resource type="Script" path="res://src/scripts/color_rect.gd" id="12_h8qnn"]
+[ext_resource type="AudioStream" uid="uid://cr488cpkr1ecs" path="res://src/assets/sounds/select_menu.mp3" id="13_hakam"]
+[ext_resource type="Texture2D" uid="uid://d38yscvjconym" path="res://src/assets/controls/ui_buttons_full_NORMAL.png" id="14_4ki5g"]
+[ext_resource type="Texture2D" uid="uid://c1ndwe3m6t5xw" path="res://src/assets/controls/ui_buttons_full_PRESSED.png.png" id="15_cbnh4"]
+[ext_resource type="Script" path="res://src/scripts/fullscreen.gd" id="16_8joi8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l8cxl"]
+shader = ExtResource("3_n1njn")
+shader_parameter/move_speed = 0.02
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wieku"]
+atlas = ExtResource("9_bw3x8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qupbj"]
+atlas = ExtResource("9_bw3x8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8kni"]
+atlas = ExtResource("9_bw3x8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bwsp"]
+atlas = ExtResource("9_bw3x8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2jy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wieku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qupbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8kni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bwsp")
+}],
+"loop": true,
+"name": &"lincking",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r015q"]
+shader = ExtResource("11_80vwj")
+shader_parameter/lines = 10.0
+shader_parameter/threshold = 0.0
+shader_parameter/line_color_a = Color(1, 1, 1, 1)
+shader_parameter/line_color_b = Color(0, 0, 0, 1)
+
+[node name="SelectLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_27lne")
+
+[node name="background" type="ParallaxBackground" parent="."]
+
+[node name="04" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/04"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("1_1kp71")
+
+[node name="03" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/03"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("2_yxrco")
+
+[node name="02" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/02"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_l8cxl")
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("4_c86hm")
+
+[node name="01" type="ParallaxLayer" parent="background"]
+
+[node name="texture" type="Sprite2D" parent="background/01"]
+position = Vector2(576, 324)
+scale = Vector2(4, 3.11538)
+texture = ExtResource("5_t46p7")
+
+[node name="levels" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -110.0
+offset_right = 150.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 5
+
+[node name="level_01" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+text = "01"
+
+[node name="level_02" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "02"
+
+[node name="level_03" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "03"
+
+[node name="level_04" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "04"
+
+[node name="level_05" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "05"
+
+[node name="level_06" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "06"
+
+[node name="level_07" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "07"
+
+[node name="level_08" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "08"
+
+[node name="level_09" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "09"
+
+[node name="level_10" type="Button" parent="levels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 32
+disabled = true
+text = "10"
+
+[node name="title" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -236.0
+offset_top = 105.0
+offset_right = 236.0
+offset_bottom = 172.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="title"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_w3cb0")
+theme_override_font_sizes/font_size = 64
+text = "Select Level"
+uppercase = true
+
+[node name="back_button" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 648.0
+
+[node name="back" type="Button" parent="back_button"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+icon = ExtResource("7_w3cyu")
+expand_icon = true
+
+[node name="anim" type="AnimatedSprite2D" parent="."]
+position = Vector2(587, 413)
+scale = Vector2(13.3125, 13.3125)
+sprite_frames = SubResource("SpriteFrames_h2jy2")
+animation = &"lincking"
+autoplay = "lincking"
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="ui_fullscreen" type="TouchScreenButton" parent="controls"]
+position = Vector2(1096, 46)
+scale = Vector2(0.968749, 0.968749)
+texture_normal = ExtResource("14_4ki5g")
+texture_pressed = ExtResource("15_cbnh4")
+visibility_mode = 1
+script = ExtResource("16_8joi8")
+
+[node name="transition" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("10_kb8ah")
+
+[node name="color_rect" type="ColorRect" parent="transition"]
+material = SubResource("ShaderMaterial_r015q")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("12_h8qnn")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_hakam")
+autoplay = true
+
+[connection signal="pressed" from="levels/level_01" to="." method="_on_level_01_pressed"]
+[connection signal="pressed" from="levels/level_02" to="." method="_on_level_02_pressed"]
+[connection signal="pressed" from="levels/level_03" to="." method="_on_level_03_pressed"]
+[connection signal="pressed" from="levels/level_04" to="." method="_on_level_04_pressed"]
+[connection signal="pressed" from="levels/level_05" to="." method="_on_level_05_pressed"]
+[connection signal="pressed" from="levels/level_06" to="." method="_on_level_06_pressed"]
+[connection signal="pressed" from="levels/level_07" to="." method="_on_level_07_pressed"]
+[connection signal="pressed" from="levels/level_08" to="." method="_on_level_08_pressed"]
+[connection signal="pressed" from="levels/level_09" to="." method="_on_level_09_pressed"]
+[connection signal="pressed" from="levels/level_10" to="." method="_on_level_10_pressed"]
+[connection signal="pressed" from="back_button/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="controls/ui_fullscreen" to="controls/ui_fullscreen" method="_on_pressed"]

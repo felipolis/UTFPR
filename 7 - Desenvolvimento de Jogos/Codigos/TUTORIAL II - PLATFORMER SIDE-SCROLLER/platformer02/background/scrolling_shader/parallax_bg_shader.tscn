@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://dri18qphar1uc"]
+
+[ext_resource type="Texture2D" uid="uid://cri3x0rfx2nfq" path="res://background/background.png" id="1_5d808"]
+[ext_resource type="Shader" path="res://background/scrolling_shader/scrolling_uv.gdshader" id="2_pfqb3"]
+[ext_resource type="Texture2D" uid="uid://2hutofuy5aj8" path="res://background/scrolling_shader/background1.png" id="3_xpfo4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p0xek"]
+shader = ExtResource("2_pfqb3")
+shader_parameter/motion = Vector2(5, 0)
+shader_parameter/scale = 0.4
+shader_parameter/offset = Vector2(0, 7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15v73"]
+shader = ExtResource("2_pfqb3")
+shader_parameter/motion = Vector2(8, 0)
+shader_parameter/scale = 0.7
+shader_parameter/offset = Vector2(0, 15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vmn2"]
+shader = ExtResource("2_pfqb3")
+shader_parameter/motion = Vector2(12, 0)
+shader_parameter/scale = 1.0
+shader_parameter/offset = Vector2(0, 0)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="SkyTexture" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_5d808")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CloudsTexture3" type="TextureRect" parent="."]
+self_modulate = Color(0.596078, 0.72549, 1, 1)
+material = SubResource("ShaderMaterial_p0xek")
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_xpfo4")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CloudsTexture2" type="TextureRect" parent="."]
+self_modulate = Color(0.74902, 0.831373, 1, 1)
+material = SubResource("ShaderMaterial_15v73")
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_xpfo4")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CloudsTexture1" type="TextureRect" parent="."]
+self_modulate = Color(0.898039, 0.929412, 1, 1)
+material = SubResource("ShaderMaterial_4vmn2")
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_xpfo4")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true

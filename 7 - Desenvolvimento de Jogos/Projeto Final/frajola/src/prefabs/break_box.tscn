@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn8lrv7pnbn8x"]
+
+[ext_resource type="Script" path="res://src/scripts/break_box.gd" id="1_secro"]
+[ext_resource type="Texture2D" uid="uid://dyf8i1vjmln6j" path="res://src/assets/tilesets/3 - Others/brick (16 x 16).png" id="1_v8ym3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60hmr"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_bqwpk"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.588235, 0.0941176, 0.160784, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ycanq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0nw68"]
+_data = {
+"RESET": SubResource("Animation_ycanq"),
+"hit": SubResource("Animation_bqwpk")
+}
+
+[node name="break_box" type="CharacterBody2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("1_secro")
+pieces = PackedStringArray("res://src/assets/tilesets/3 - Others/brick-piece-01.png", "res://src/assets/tilesets/3 - Others/brick-piece-02.png", "res://src/assets/tilesets/3 - Others/brick-piece-03.png", "res://src/assets/tilesets/3 - Others/brick-piece-04.png")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture = ExtResource("1_v8ym3")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_60hmr")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0nw68")
+}
+
+[node name="spawn_fish" type="Marker2D" parent="."]
+position = Vector2(0, -8)

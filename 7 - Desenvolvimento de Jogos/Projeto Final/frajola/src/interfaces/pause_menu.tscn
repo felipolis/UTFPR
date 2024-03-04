@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqehrcaxvg2is"]
+
+[ext_resource type="Script" path="res://src/scripts/pause_menu.gd" id="1_a8vky"]
+[ext_resource type="FontFile" uid="uid://jv0itu46v2vp" path="res://src/assets/fonts/RevMiniPixel.ttf" id="1_jvpk0"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_1jqdw"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_aedlj"]
+events = [SubResource("InputEventAction_1jqdw")]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_a8vky")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.254902)
+
+[node name="title_holder" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 122.0
+offset_right = 108.0
+offset_bottom = 173.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="title_holder"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_jvpk0")
+theme_override_font_sizes/font_size = 47
+text = "PAUSE"
+
+[node name="menu_holder" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.5
+offset_top = -88.0
+offset_right = 225.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_btn" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jvpk0")
+theme_override_font_sizes/font_size = 47
+shortcut = SubResource("Shortcut_aedlj")
+text = "RESUME"
+
+[node name="back_btn" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jvpk0")
+theme_override_font_sizes/font_size = 47
+text = "BACK TO MAIN MENU"
+
+[node name="quit_btn" type="Button" parent="menu_holder"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jvpk0")
+theme_override_font_sizes/font_size = 47
+text = "QUIT GAME"
+
+[connection signal="pressed" from="menu_holder/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="menu_holder/back_btn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="menu_holder/quit_btn" to="." method="_on_quit_btn_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbkdt5ipcsf33"]
+
+[ext_resource type="PackedScene" uid="uid://bg3e8n2axkeim" path="res://level/scrolling_clouds.tscn" id="2_5jh1i"]
+[ext_resource type="Texture2D" uid="uid://cri3x0rfx2nfq" path="res://level/background.png" id="2_b7lyx"]
+[ext_resource type="PackedScene" uid="uid://c4j3wmxqh4umg" path="res://level/level_block.tscn" id="3_pk4lc"]
+[ext_resource type="PackedScene" uid="uid://bcli0y0pjexwa" path="res://player/player.tscn" id="4_p71l2"]
+
+[node name="World" type="Node2D"]
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_b7lyx")
+stretch_mode = 1
+
+[node name="ScrollingClouds" type="Node2D" parent="."]
+
+[node name="ScrollingClouds1" parent="ScrollingClouds" instance=ExtResource("2_5jh1i")]
+modulate = Color(0.6, 0.733333, 1, 1)
+scroll_speed = -20.0
+
+[node name="ScrollingClouds2" parent="ScrollingClouds" instance=ExtResource("2_5jh1i")]
+modulate = Color(0.721569, 0.815686, 1, 1)
+position = Vector2(-48, 16)
+scroll_speed = -40.0
+
+[node name="ScrollingClouds3" parent="ScrollingClouds" instance=ExtResource("2_5jh1i")]
+modulate = Color(0.85098, 0.901961, 1, 1)
+position = Vector2(-24, 32)
+scroll_speed = -60.0
+
+[node name="Level" parent="." instance=ExtResource("3_pk4lc")]
+
+[node name="Polygon2D" parent="Level" index="0"]
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 192, 56, 192, 80, 216, 120, 216, 152, 200, 184, 200, 184, 232, 232, 232, 232, 160, 288, 160, 288, 208, 360, 208, 360, 176, 392, 176, 392, 256, 416, 256, 416, 280, 280, 280, 280, 296, 240, 296, 240, 280, 128, 280, 128, 296, 88, 296, 88, 280, 16, 280, 16, 336, 472, 336, 472, 168, 536, 168, 536, 56, 560, 56, 560, 192, 496, 192, 496, 336, 560, 336, 616, 336, 616, 64, 616, 16, 16, 16, 16, 0, 640, 0, 640, 360, 0, 360)
+
+[node name="CollisionPolygon2D" parent="Level" index="1"]
+polygon = PackedVector2Array(0, 0, 16, 0, 16, 192, 56, 192, 80, 216, 120, 216, 152, 200, 184, 200, 184, 232, 232, 232, 232, 160, 288, 160, 288, 208, 360, 208, 360, 176, 392, 176, 392, 256, 416, 256, 416, 280, 280, 280, 280, 296, 240, 296, 240, 280, 128, 280, 128, 296, 88, 296, 88, 280, 16, 280, 16, 336, 472, 336, 472, 168, 536, 168, 536, 56, 560, 56, 560, 192, 496, 192, 496, 336, 560, 336, 616, 336, 616, 64, 616, 16, 16, 16, 16, 0, 640, 0, 640, 360, 0, 360)
+
+[node name="Player" parent="." instance=ExtResource("4_p71l2")]
+position = Vector2(40, 176)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 217.0
+offset_bottom = 77.0
+theme_override_font_sizes/normal_font_size = 9
+text = "CONTROLES:
+WASD, SETAS, LEFT STICK - movimentos
+NUM1, Z, botão A - pulo
+NUM2, X, botão Y - gravidade"
+
+[editable path="Level"]

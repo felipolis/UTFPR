@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpncpy1d5sxge"]
+
+[ext_resource type="Script" path="res://src/scripts/ball.gd" id="1_cd6pb"]
+[ext_resource type="Texture2D" uid="uid://d14yt0jec6dkq" path="res://src/assets/ball/ball (32 x 32).png" id="2_mcq4x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_es4hn"]
+radius = 5.0
+
+[node name="ball" type="RigidBody2D" groups=["ball"]]
+collision_layer = 128
+collision_mask = 16
+gravity_scale = 0.0
+script = ExtResource("1_cd6pb")
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_mcq4x")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_es4hn")
