@@ -1,0 +1,31 @@
+,1 PATCH,,,,3 PACTHES,,,,5 PACTHES,,,
+F1 Macro/avg,2 Classes,3 Classes,5 Classes,10 Classes,2 Classes,3 Classes,5 Classes,10 Classes,2 Classes,3 Classes,5 Classes,10 Classes
+LBP + LAT/LONG,0.8514,0.7646,0.7008,0.5451,0.8246,0.7547,0.6635,0.5065,0.8222,0.7522,0.6639,0.4948
+Gabor + LAT/LONG,0.8342,0.7077,0.5755,0.4182,0.7797,0.7242,0.5799,0.4166,0.7752,0.7021,0.5578,0.3865
+VGG16 + LAT/LONG,0.8580,0.7798,0.6378,0.4762,0.8764,0.8155,0.7059,0.5047,0.8633,0.8143,0.7163,0.5339
+ResNet50 + LAT/LONG,0.8976,0.8160,0.7185,0.5202,0.8994,0.8472,0.7302,0.5408,0.8899,0.8422,0.7494,0.5573
+DenseNet121 + LAT/LONG,0.8992,0.8462,0.7409,0.5580,0.8926,0.8307,0.7351,0.5751,0.8836,0.8327,0.7466,0.5727
+MobileNet + LAT/LONG,0.8888,0.8285,0.7275,0.5246,0.8989,0.8525,0.7642,0.5760,0.8875,0.8527,0.7523,0.5590
+,,,,,,,,,,,,
+barswa,Hirundo rustica,Barn Swallow,,,,,,,,,,
+blakit1,Milvus migrans,Black Kite,,,,,,,,,,
+categr,Bubulcus ibis,Cattle Egret,,,,,,,,,,
+cohmar1,Delichon urbicum,Common House-Martin,,,,,,,,,,
+eaywag1,Motacilla flava,Western Yellow Wagtail,,,,,,,,,,
+eubeat1,Merops apiaster,European Bee-eater,,,,,,,,,,
+gargan,Spatula querquedula,Garganey,,,,,,,,,,
+hoopoe,Upupa epops,Eurasian Hoopoe,,,,,,,,,,
+litegr,Egretta garzetta,Little Egret,,,,,,,,,,
+rerswa1,Cecropis daurica,Red-rumped Swallow,,,,,,,,,,
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+blakit1,blakit1,barswa,barswa,,,,,,,,,
+litegr,eubeat1,blakit1,blakit1,,,,,,,,,
+,litegr,categr,categr,,,,,,,,,
+,,eubeat1,cohmar1,,,,,,,,,
+,,litegr,eaywag1,,,,,,,,,
+,,,eubeat1,,,,,,,,,
+,,,gargan,,,,,,,,,
+,,,hoopoe,,,,,,,,,
+,,,litegr,,,,,,,,,
+,,,rerswa1,,,,,,,,,
