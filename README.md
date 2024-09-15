@@ -1,4 +1,3 @@
-
 # 🎓 Minha Jornada na Ciência da Computação - UTFPR
 
 É com muito carinho que compartilho aqui **parte** da minha história e da minha jornada como estudante do curso de **Bacharelado em Ciência da Computação** na Universidade Tecnológica Federal do Paraná (UTFPR) 🏫.
@@ -24,5 +23,3 @@ Um agradecimento especial ao meu **gatinho Frajola**, que esteve ao meu lado dur
 ### Amigos 🎉
 
 Por fim, um enorme agradecimento aos **amigos** que fiz ao longo desse período. Pessoas extraordinárias, que, mesmo distantes agora, estarão sempre em minhas memórias. A vida segue e cada um está trilhando o seu próprio caminho, mas foi maravilhoso ter vocês por perto durante esses anos. Até os próximos encontros! 🌟
-
----
